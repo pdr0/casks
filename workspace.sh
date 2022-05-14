@@ -7,13 +7,12 @@ echo "Installing Oh My Zsh"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "Installing homebrew"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+git clone https://github.com/Homebrew/brew homebrew
 
 echo "Adding brew command command to PATH"
-test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
-echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
+eval "$(homebrew/bin/brew shellenv)"
+brew update --force --quiet
+chmod -R go-w "$(brew --prefix)/share/zsh"
 
 echo "Testing brew"
 brew install hello
@@ -56,3 +55,18 @@ Running Hello World
 '
 
 sudo docker run hello-world
+
+:'
+Install NodeJS
+Install NPM (Node Package Manager)
+Install n as nodeJs Version manager
+'
+sudo apt install nodejs
+sudo apt install npm
+npm install -g n
+
+:'
+Manual Steps:
+- Midori: Add it to favourites menu
+- WebStorm: License, Install Material UI, Material icons
+'
