@@ -23,3 +23,7 @@ sudo apt update && sudo apt install midori
 
 echo "Download WebStorm"
 wget "https://download-cdn.jetbrains.com/webstorm/WebStorm-2022.1.1.tar.gz"
+echo "Decompressing WebStorm"
+tar -xf WebStorm-2022.1.1.tar.gz 
+
+
