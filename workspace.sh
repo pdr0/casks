@@ -24,6 +24,35 @@ sudo apt update && sudo apt install midori
 echo "Download WebStorm"
 wget "https://download-cdn.jetbrains.com/webstorm/WebStorm-2022.1.1.tar.gz"
 echo "Decompressing WebStorm"
-tar -xf WebStorm-2022.1.1.tar.gz 
+tar -xf WebStorm-2022.1.1.tar.gz
+
+:'
+Installing Docker from its own repository.
+Setting up repository
+'
+
+sudo apt-get update
+sudo apt-get install \
+  ca-certificates \
+  curl \
+  gnupg \
+  lsb-release
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 
+:'
+Installing Docker Engine
+'
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+:'Testing installation of Docker
+Running Hello World
+'
+
+sudo docker run hello-world
